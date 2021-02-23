@@ -2,15 +2,19 @@ import socket
 import threading
 import sys
 
-IP = "127.0.0.1"
-PORT = 20557
+if len(sys.argv) != 3 :
+    print(f"Usage : {sys.argv[0]} <IP> <Port>")
+    exit()
+
+IP = sys.argv[1]
+PORT = int(sys.argv[2])
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.connect((IP, PORT))
 
 def sendMessage():
     while True:
-        user_message = input("Message >> ")
+        user_message = input()
         server.send(user_message.encode())
 
 def recvMessage():
