@@ -39,7 +39,7 @@ def remove(conn):
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 server.bind((IP, PORT))
-server.listen()
+server.listen(100)
 print(f"Listening at {IP}:{PORT}")
 
 while True:
